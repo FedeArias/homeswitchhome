@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sale: MyString
+  precio: 1
+  fecha: MyString
+  propiedad: 
+
+two:
+  sale: MyString
+  precio: 1
+  fecha: MyString
+  propiedad: 

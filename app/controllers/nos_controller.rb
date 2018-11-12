@@ -1,0 +1,2 @@
+class NosController < ApplicationController
+end

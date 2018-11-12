@@ -1,0 +1,2 @@
+class HotsController < ApplicationController
+end
