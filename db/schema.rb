@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20181112225510) do
     t.text "descripcion"
     t.string "nombre"
     t.string "lugar"
+    t.decimal "costo", precision: 7, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -14,5 +14,10 @@
     <%=f.label :lugar, 'Lugar'%>
     <%=f.text_field :lugar, class: 'form-control', placeholder: 'Ingrese el lugar donde se encuentra la propiedad'%>
   </div>
-<% end %>
+  <%= f.submit 'crear nueva propiedad', class: 'btn btn-primary' %>
+  <%= link_to 'atras', properties_path %>
+  <% end %>
+  
+
+
  </html> 
