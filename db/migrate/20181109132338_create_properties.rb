@@ -4,7 +4,8 @@ class CreateProperties < ActiveRecord::Migration[5.1]
       t.text :descripcion
       t.string :nombre
       t.string :lugar
-      
+
+      #add_column :costo, :bodyweight, :decimal, precision: 7, scale: 2
 
       t.timestamps
     end

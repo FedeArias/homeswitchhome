@@ -28,7 +28,7 @@ class AuctionnsController < ApplicationController
 
     respond_to do |format|
       if @auctionn.save
-        format.html { redirect_to @auctionn, notice: 'Auctionn was successfully created.' }
+        format.html { redirect_to @auctionn, notice: 'La subasta se creo  con exito' }
         format.json { render :show, status: :created, location: @auctionn }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ class AuctionnsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def auctionn_params
-      params.require(:auctionn).permit(:puja, :actual, :fecha, :participantes, :precio, :minimo)
+      params.require(:auctionn).permit(:puja,  :fecha, :participantes, :precio, :minimo)
     end
 end
