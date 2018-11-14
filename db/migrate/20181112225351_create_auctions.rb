@@ -4,7 +4,7 @@ class CreateAuctions < ActiveRecord::Migration[5.1]
       t.string :puja
       t.integer :actual
       t.string :fecha
-      t.users :participantes
+     # t.users :participantes
       t.string :precio
       t.integer :minimo
 
