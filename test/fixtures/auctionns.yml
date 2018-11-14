@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  puja: MyString
+  actual: 1
+  fecha: MyString
+  participantes: 
+  precio: MyString
+  minimo: 1
+
+two:
+  puja: MyString
+  actual: 1
+  fecha: MyString
+  participantes: 
+  precio: MyString
+  minimo: 1
