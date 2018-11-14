@@ -5,13 +5,9 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :apellido
       t.integer :DNI
       t.string :contraseña
-      t.string :fecha
-      t.string :de
-      t.integer :nacimiento
+      t.string :fechaDeNacimiento
       t.string :email
-      t.string :datos
-      t.string :de
-      t.string :tarjeta
+      t.string :datosDeTarjeta
 
       t.timestamps
     end
