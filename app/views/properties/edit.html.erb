@@ -1,5 +1,5 @@
 <html>
-<h3> Nueva propiedad</h3>
+<h3> Modificacion de una propiedad</h3>
 
 <%=form_for @property do |f| %>
 <div class="form-group">
@@ -14,7 +14,7 @@
     <%=f.label :lugar, 'Lugar'%>
     <%=f.text_field :lugar, class: 'form-control', placeholder: 'Ingrese el lugar donde se encuentra la propiedad', required: true %>
   </div>
-  <%= f.submit 'crear nueva propiedad', class: 'btn btn-primary' %>
+  <%= f.submit 'actualizar la propiedad', class: 'btn btn-primary' %>
   <%= link_to 'atras', properties_path %>
   <% end %>
   

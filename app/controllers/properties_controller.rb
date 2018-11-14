@@ -25,5 +25,13 @@ class PropertiesController < ApplicationController
 
         end
     end
+    def update
+        @property = Property.find(params[:id])
+      if @property.update(params.require(:property).permit(:descripcion, :nombre, :lugar))
+        redirect_to properties_path, notice: 'La propiedad se modifico correctamente.'
+      else
+        render :edit 
+      end
+    end
     
 end
