@@ -1,5 +1,5 @@
 class Auction1sController < ApplicationController
-  before_action :set_auction1, only: [:show, :edit, :update, :destroy]
+  before_action :set_auction1, only: [:show, :edit, :update, :destroy,]
 
   # GET /auction1s
   # GET /auction1s.json
@@ -7,8 +7,14 @@ class Auction1sController < ApplicationController
     @auction1s = Auction1.all
   end
 
+  def list_auction
+    @auction1s = Auction1.all
+  end
+  
+  
   # GET /auction1s/1
   # GET /auction1s/1.json
+  
   def show
   end
 
@@ -27,6 +33,7 @@ class Auction1sController < ApplicationController
     @auction1 = Auction1.new(auction1_params)
 
     respond_to do |format|
+      
       if @auction1.save
         format.html { redirect_to @auction1, notice: 'Subasta creada correctamente' }
         format.json { render :show, status: :created, location: @auction1 }
@@ -71,4 +78,7 @@ class Auction1sController < ApplicationController
     def auction1_params
       params.require(:auction1).permit(:nombre, :precio, :puja, :fecha)
     end
+    
+
+
 end

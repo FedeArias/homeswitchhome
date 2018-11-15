@@ -1,0 +1,30 @@
+
+<h1>Subastas adheridas</h1>
+   
+
+<p id="notice"><%= notice %></p>
+
+<h1>Subastas</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Puja actual</th>
+      <th>Fecha</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @auction1s.each do |auction1| %>
+      <tr>
+        <td><%= auction1.nombre %></td>
+        <td><%= auction1.puja %></td>
+        <td><%= auction1.fecha %></td>
+         <td><a href="#" class="badge badge-dark">Pujar</a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
