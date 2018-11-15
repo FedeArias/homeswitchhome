@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20181115132241) do
     t.string "puja"
     t.string "fecha"
     t.string "precio"
+    t.integer "minimo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nombre"
@@ -77,6 +78,7 @@ ActiveRecord::Schema.define(version: 20181115132241) do
     t.text "descripcion"
     t.string "nombre"
     t.string "lugar"
+    t.decimal "costo", precision: 7, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
