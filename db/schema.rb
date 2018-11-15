@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181114024427) do
+ActiveRecord::Schema.define(version: 20181115132241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,14 +21,27 @@ ActiveRecord::Schema.define(version: 20181114024427) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "auction1s", force: :cascade do |t|
+    t.string "nombre"
+    t.float "precio"
+    t.float "puja"
+    t.string "fecha"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "auctionns", force: :cascade do |t|
     t.string "puja"
     t.integer "actual"
     t.string "fecha"
     t.string "precio"
-    t.integer "minimo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nombre"
+    t.integer "Puja"
+    t.integer "Precio"
+    t.integer "licitacion"
+    t.integer "monto"
   end
 
   create_table "nos", force: :cascade do |t|
@@ -48,7 +61,6 @@ ActiveRecord::Schema.define(version: 20181114024427) do
     t.text "descripcion"
     t.string "nombre"
     t.string "lugar"
-    t.decimal "costo", precision: 7, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
