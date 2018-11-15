@@ -33,5 +33,9 @@ class PropertiesController < ApplicationController
         render :edit 
       end
     end
-    
+    def show
+        @property= Property.find(params[:id])
+    end
+    def home
+    end 
 end
