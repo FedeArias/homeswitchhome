@@ -10,6 +10,7 @@ class AuctionnsController < ApplicationController
   # GET /auctionns/1
   # GET /auctionns/1.json
   def show
+   
   end
 
   # GET /auctionns/new
@@ -42,7 +43,7 @@ class AuctionnsController < ApplicationController
   def update
     respond_to do |format|
       if @auctionn.update(auctionn_params)
-        format.html { redirect_to @auctionn, notice: 'Auctionn was successfully updated.' }
+        format.html { redirect_to @auctionn, notice: 'La subasta fue actualizada correctamente' }
         format.json { render :show, status: :ok, location: @auctionn }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class AuctionnsController < ApplicationController
   def destroy
     @auctionn.destroy
     respond_to do |format|
-      format.html { redirect_to auctionns_url, notice: 'Auctionn was successfully destroyed.' }
+      format.html { redirect_to auctionns_url, notice: 'La Subasta fue destruida exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +70,6 @@ class AuctionnsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def auctionn_params
-      params.require(:auctionn).permit(:puja,  :fecha, :participantes, :precio, :minimo)
+      params.require(:auctionn).permit( :puja , :fecha, :participantes, :precio, :minimo)
     end
 end

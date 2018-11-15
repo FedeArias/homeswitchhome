@@ -1,0 +1,26 @@
+
+<%= form_for(@auction1) do |f| %>
+ 
+  <div class="container-fluid">
+  <div class="form-group">
+    <%=f.label :nombre, 'Nombre '%>
+    <%=f.text_field :nombre, class: 'form-control', placeholder: 'Ingrese nombre de la propiedad a subastar', required: true %>
+  </div>
+   <div class="form-group">
+    <%=f.label :precio, 'Precio'%>
+    <%=f.text_field :precio, class: 'form-control', placeholder: 'Ingrese precio de la propiedad', required: true %>
+  </div>
+   <div class="form-group">
+    <%=f.label :puja, 'Puja '%>
+    <%=f.text_field :puja, class: 'form-control', placeholder: 'Ingrese puja', required: true %>
+  </div>
+  <div class="form-group">
+    <%=f.label :fecha, 'Fecha'%>
+    <%=f.text_field :fecha, class: 'form-control', placeholder:  'Ingrese fecha', required: true %>
+  </div>
+</div>
+
+  <div class="form-actions">
+    <%= f.submit 'crear nueva subasta', class: 'btn btn-primary' %>
+  </div>
+<% end %>

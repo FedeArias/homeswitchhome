@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :auction1s
   resources :auctionns
   resources :hots
   resources :auctions

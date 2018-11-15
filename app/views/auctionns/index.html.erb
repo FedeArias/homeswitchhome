@@ -5,25 +5,31 @@
 <table class="table">
   <thead>
     <tr>
-      <th>  Puja</th>
+      <th>Nombre</th>
+
+      <th>Licitacion</th>
       
       <th>Fecha</th>
       
-      <th>Precio</th>
-      <th>Minimo</th>
-      <th colspan="3"></th>
+      <th>Monto</th>
+
+      
+      
+      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @auctionns.each do |auctionn| %>
       <tr>
-        <td><%= auctionn.puja %></td>
+        <td><%= auctionn.nombre %></td>
+
+        <td><%= auctionn.licitacion %></td>
         
         <td><%= auctionn.fecha %></td>
         
-        <td><%= auctionn.precio %></td>
-        <td><%= auctionn.minimo %></td>
+        <td><%= auctionn.monto %></td>
+        
         <td><%= link_to 'mostrar', auctionn, class: 'btn btn-info btn-sm' %></td>
         <td><%= link_to 'editar', edit_auctionn_path(auctionn),class: 'btn btn-info btn-sm' %></td>
         <td><%= link_to 'eliminar', auctionn, method: :delete, data: { confirm: 'Realmente quieres eliminar la Subasta' },class: 'btn btn-danger btn-sm' %></td>
