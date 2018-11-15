@@ -10,10 +10,32 @@
     <%= config.session_store :my_custom_store %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"
   </head>
+  <style CSS>
+  /* change the background color */
+.navbar-custom {
+    background-color: #6b6b6b;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255,255,255,.8);
+    padding: 0.8rem 1rem;
+}
+/* change the link color and add padding for height */
+.navbar-custom .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+    padding: 1rem 1rem;
+}
+/* change the color of active or hovered links */
 
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+    background-color: #6894ec ; /* add background-color to active links */
+}
+</style>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+ <nav class="navbar navbar-expand-lg navbar-custom p-0">
+  <%= image_tag("HSH-Logo.svg", size:"60x60") %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -57,3 +79,4 @@
     </div>
   </body>
 </html>
+ 
