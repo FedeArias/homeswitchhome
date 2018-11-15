@@ -1,14 +1,15 @@
 class CreateAuctions < ActiveRecord::Migration[5.1]
   def change
     create_table :auctions do |t|
-      t.ingeger :puja
+
+      t.integer :pujamActual
       t.string :fecha
-      t.users :participante
-      t.string :precio
-      t.string :precio
-      t.integer :minim
+     # t.users :participantes
+
       t.integer :precioMinimo
-      t.timestamps
+
+     t.timestamps
+
     end
   end
 end
