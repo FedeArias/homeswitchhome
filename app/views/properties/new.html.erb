@@ -7,12 +7,16 @@
     <%=f.text_field :nombre, class: 'form-control', placeholder: 'Ingrese el nombre de la propiedad', required: true %>
   </div>
 <div class="form-group">
-    <%=f.label :descripcion, 'Descripcion'%>
+    <%=f.label :descripcion, 'Descripcion de la propiedad'%>
     <%=f.text_field :descripcion, class: 'form-control', placeholder: 'Ingrese la descripcion de la propiedad', required: true %>
   </div>
 <div class="form-group">
     <%=f.label :lugar, 'Lugar'%>
     <%=f.text_field :lugar, class: 'form-control', placeholder: 'Ingrese el lugar donde se encuentra la propiedad', required: true %>
+  </div>
+  <div class="form-group">
+    <%=f.label :lugar, 'Descripcion del lugar'%>
+    <%=f.text_field :lugar, class: 'form-control', placeholder: 'Ingrese la descripcion del lugar donde se encuentra la propiedad', required: true %>
   </div>
   <%= f.submit 'crear nueva propiedad', class: 'btn btn-primary' %>
   <%= link_to 'atras', properties_path %>

@@ -3,10 +3,11 @@
 <table class="table">
 <thead>
     <tr>
-    <th width="70%">Nombre </th >
-    <th width="40%">Descripcion del lugar</th >
+    <th width="40%">Nombre </th >
+    <th width="40%">Descripcion de la propiedad</th >
     <th width="40%">Lugar </th >
-    <th colspan= "2" ></th>
+    <th width="40%">Descripcion del lugar</th >
+    <th colspan= "3" ></th>
     </tr>
 </thead>
 
@@ -16,7 +17,9 @@
       <td> <%= property.nombre%> </td>
       <td> <%= property.descripcion%> </td>
       <td> <%= property.lugar%> </td>
-      <td> <%=link_to 'Editar', edit_property_path(property),class: 'btn btn-primary btn-sm'%>
+      <td> <%= property.descripcionLug%> </td>
+      <td> <%=link_to 'Mostrar', property, class: 'btn btn-primary btn-sm'%>
+      <td> <%=link_to 'Editar', edit_property_path(property), class: 'btn btn-primary btn-sm'%>
       <td> <%=link_to 'Eliminar', property, method: :delete, class: 'btn btn-danger btn-sm',data: { confirm: "¿Realmente desea eliminar la propiedad?"} %>
         </td>
         </tr>

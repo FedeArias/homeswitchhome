@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @property.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion de la propiedad:</strong>
+  <%= @property.descripcion %>
+</p>
+
+<p>
+  <strong>Lugar:</strong>
+  <%= @property.lugar %>
+</p>
+
+<p>
+  <strong>Descripcion del lugar:</strong>
+  <%= @property.descripcionLug %>
+</p>
+
+<%= link_to 'editar', edit_property_path(@property) %> |
+<%= link_to 'atras', properties_path %>

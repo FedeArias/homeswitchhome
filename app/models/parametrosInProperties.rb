@@ -1,0 +1,2 @@
+class ParametrosInProperties < ApplicationRecord
+end

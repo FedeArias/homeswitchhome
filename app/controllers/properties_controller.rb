@@ -18,7 +18,7 @@ class PropertiesController < ApplicationController
     end
     def destroy
         @property = Property.find(params[:id])
-       if @property.destroy
+        if @property.destroy
            redirect_to properties_path, notice: "La propiedad '#{@property.nombre}' fue eliminada correctamente"
         else
             redirect_to properties_path, notice: "ERROR al eliminar la pelicula" #{@property.nombre}
@@ -32,6 +32,10 @@ class PropertiesController < ApplicationController
       else
         render :edit 
       end
+    end
+    def search
+        palabra = params[:keyword] 
+        @property= Property.find("nombre LIKE ? OR descripcion LIKE ?" ,palabra,palabra)
     end
     def show
         @property= Property.find(params[:id])
