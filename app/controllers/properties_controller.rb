@@ -1,6 +1,7 @@
 class PropertiesController < ApplicationController
     def index   
         @properties = Property.all
+        
     end 
     def new
         @property = Property.new
@@ -21,7 +22,7 @@ class PropertiesController < ApplicationController
         if @property.destroy
            redirect_to properties_path, notice: "La propiedad '#{@property.nombre}' fue eliminada correctamente"
         else
-            redirect_to properties_path, notice: "ERROR al eliminar la pelicula" #{@property.nombre}
+            redirect_to properties_path, notice: "ERROR al eliminar la propiedad" #{@property.nombre}
 
         end
     end
@@ -40,6 +41,11 @@ class PropertiesController < ApplicationController
     def show
         @property= Property.find(params[:id])
     end
+
+    def registred
+    
+    end
+
     def home
     end 
 end
