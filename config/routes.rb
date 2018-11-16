@@ -10,13 +10,8 @@ Rails.application.routes.draw do
   resources :users
   resources :properties
   root "properties#home"
-<<<<<<< HEAD
   get 'properties/parametrosInProperties'
   get 'nueva_ruta' => 'properties#index', as: 'nuevo'
-=======
-  get 'auction1s/index'
   get 'Subastas_adheridas' => 'auction1s#list_auction', as: 'lista'
-  get 'Sub' => 'auction1s#index'
->>>>>>> 017520522f03c18575131107de53eed4a2b229b4
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

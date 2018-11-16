@@ -34,8 +34,8 @@ class PropertiesController < ApplicationController
       end
     end
     def search
-        palabra = params[:keyword] 
-        @property= Property.find("nombre LIKE ? OR descripcion LIKE ?" ,palabra,palabra)
+        @search = Porperty.search(params[:search])   
+        @property = @search.all 
     end
     def show
         @property= Property.find(params[:id])
