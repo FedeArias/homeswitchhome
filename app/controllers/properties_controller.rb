@@ -7,7 +7,7 @@ class PropertiesController < ApplicationController
         @property = Property.new
     end
     def create 
-        @property = Property.new(params.require(:property).permit(:descripcion, :nombre, :lugar))
+        @property = Property.new(params.require(:property).permit(:descripcion, :nombre, :lugar, :descripcionLug))
       if @property.save
         redirect_to properties_path, notice: 'La propiedad se creo correctamente.'
       else
