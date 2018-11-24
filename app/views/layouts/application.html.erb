@@ -67,8 +67,8 @@
         <a class="nav-link disabled" href="<%=lista_path%>">Subastas adheridas</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+    <form class="form-inline my-2 my-lg-0" action= "<%= properties_path%>">
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="nombre">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
     </form>
   </div>
@@ -79,8 +79,19 @@
         <%= notice %>
       </div>
     <% end %>
+    <% if @aviso %>
+      <div class="alert alert-info">
+        <%= @aviso %>
+      </div>
+      <% end %>
+      <% if notice %>
+         <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+         <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
       <%= yield %>
     </div>
   </body>
-</html>
+
  

@@ -1,7 +1,16 @@
 class PropertiesController < ApplicationController
     def index   
-        @properties = Property.all
         
+        if params[:nombre]
+           if  @properties=Property.where('nombre ILIKE ?', "%#{params[:nombre]}%").count > 0
+                @properties=Property.where('nombre ILIKE ?', "%#{params[:nombre]}%")
+            else 
+            @properties = Property.all
+            @aviso = 'No se encontro ninguna propiedad con el nombre buscado'
+            end 
+        else  
+            @properties = Property.all   
+        end
     end 
     def new
         @property = Property.new
@@ -34,12 +43,10 @@ class PropertiesController < ApplicationController
         render :edit 
       end
     end
-    def search
-        @search = Porperty.search(params[:search])   
-        @property = @search.all 
-    end
+
     def show
         @property= Property.find(params[:id])
+
     end
 
     def registred

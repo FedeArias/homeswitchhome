@@ -1,2 +1,0 @@
-class Premium < ApplicationRecord
-end

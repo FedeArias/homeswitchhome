@@ -1,6 +1,10 @@
 ---
 es:
   activerecord:
+    models:
+      property:
+        one: Propiedad
+        other: Propiedades
     errors:
       messages:
         record_invalid: "La validación falló: %{errors}"

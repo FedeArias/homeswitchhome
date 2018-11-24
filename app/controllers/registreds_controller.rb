@@ -1,2 +1,0 @@
-class RegistredsController < ApplicationController
-end

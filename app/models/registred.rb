@@ -1,2 +1,0 @@
-class Registred < ApplicationRecord
-end
