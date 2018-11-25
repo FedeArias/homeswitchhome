@@ -1,2 +1,0 @@
-class PremiaController < ApplicationController
-end

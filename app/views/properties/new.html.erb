@@ -1,4 +1,4 @@
-<html>
+
 <h3> Nueva propiedad</h3>
 
 <%=form_for @property do |f| %>
@@ -15,13 +15,13 @@
     <%=f.text_field :lugar, class: 'form-control', placeholder: 'Ingrese el lugar donde se encuentra la propiedad', required: true %>
   </div>
   <div class="form-group">
+
     <%=f.label :descripcionLug, 'Descripcion del lugar'%>
     <%=f.text_field :descripcionLug, class: 'form-control', placeholder: 'Ingrese la descripcion del lugar donde se encuentra la propiedad', required: true %>
+
   </div>
   <%= f.submit 'crear nueva propiedad', class: 'btn btn-primary' %>
   <%= link_to 'atras', properties_path %>
   <% end %>
   
 
-
- </html> 

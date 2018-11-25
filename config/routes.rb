@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :auction1s
   resources :auctionns
   resources :hots
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   get 'nueva_ruta' => 'properties#index', as: 'nuevo'
   get 'auction1s/index'
   get 'Subastas_adheridas' => 'auction1s#list_auction', as: 'lista'
+  get 'buscar' => 'properties#search', as: 'search'
  get 'Sub' => 'auction1s#index'
 
 
