@@ -4,11 +4,27 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email,
+    <%= f.input :nombre,
                 required: true,
                 autofocus: true ,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :contraseña,
+                input_html: { autocomplete: "nombre" }%>
+    <%= f.input :apellido,
+                required: true,
+                autofocus: true ,
+                input_html: { autocomplete: "apellido" }%>
+    <%= f.input :DNI,
+                required: true,
+                autofocus: true ,
+                input_html: { autocomplete: "DNI" }%>
+    <%= f.input :fechaDeNacimiento,
+                required: true,
+                autofocus: true ,
+                input_html: { autocomplete: "fechaDeNacimiento" }%>
+    <%= f.input :datosDeTarjeta,
+                required: true,
+                autofocus: true ,
+                input_html: { autocomplete: "datosDeTarjeta" }%>
+    <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>

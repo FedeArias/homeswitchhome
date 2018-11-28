@@ -9,16 +9,35 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-
+    <%= f.input :nombre,
+                required: false,
+                hint: "deje el espacio en blanco si no quiere modificarlo",
+                input_html: { autocomplete: "nombre" }%>
+    <%= f.input :apellido,
+                required: false,
+                hint: "deje el espacio en blanco si no quiere modificarlo",
+                input_html: { autocomplete: "apellido" }%>
+    <%= f.input :DNI,
+                required: false,
+                hint: "deje el espacio en blanco si no quiere modificarlo",
+                input_html: { autocomplete: "DNI" }%>
+    <%= f.input :fechaDeNacimiento,
+                required: false,
+                hint: "deje el espacio en blanco si no quiere modificarlo",
+                input_html: { autocomplete: "fechaDeNacimiento" }%>
+    <%= f.input :datosDeTarjeta,
+                required: false,
+                hint: "deje el espacio en blanco si no quiere modificarlo",
+                input_html: { autocomplete: "datosDeTarjeta" }%>
     <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
+                hint: "deje el espacio en blanco si no quiere modificarlo",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+                hint: "necesitamos su contraseña actual para guardar los cambios",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
   </div>
@@ -28,8 +47,8 @@
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>Cancelar mi cuenta</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Insatisfecho? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Atras", :back %>
