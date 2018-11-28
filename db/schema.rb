@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181124213109) do
+ActiveRecord::Schema.define(version: 20181128182002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,16 +32,31 @@ ActiveRecord::Schema.define(version: 20181124213109) do
 
   create_table "auctionns", force: :cascade do |t|
     t.string "puja"
-    t.integer "actual"
     t.string "fecha"
     t.string "precio"
+    t.integer "minimo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nombre"
-    t.integer "Puja"
-    t.integer "Precio"
     t.integer "licitacion"
     t.integer "monto"
+  end
+
+  create_table "auctions", force: :cascade do |t|
+    t.integer "pujamActual"
+    t.string "fecha"
+    t.integer "precioMinimo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hots", force: :cascade do |t|
+    t.string "sale"
+    t.integer "precio"
+    t.string "fecha"
+    t.integer "property_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "nos", force: :cascade do |t|
@@ -61,6 +76,7 @@ ActiveRecord::Schema.define(version: 20181124213109) do
     t.text "descripcion"
     t.string "nombre"
     t.string "lugar"
+    t.decimal "costo", precision: 7, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "descripcionLug"
@@ -79,13 +95,7 @@ ActiveRecord::Schema.define(version: 20181124213109) do
     t.string "nombre"
     t.string "apellido"
     t.integer "DNI"
-    t.string "contraseña"
-    t.string "fecha"
-    t.string "de"
-    t.integer "nacimiento"
     t.string "email", default: "", null: false
-    t.string "datos"
-    t.string "tarjeta"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "premium"
@@ -94,6 +104,10 @@ ActiveRecord::Schema.define(version: 20181124213109) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.boolean "esAdmin"
+    t.date "vencimientoTarjeta"
+    t.integer "codigoTarjeta"
+    t.string "numeroTarjeta"
+    t.date "fechaNacimiento"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
