@@ -11,6 +11,7 @@
     <% end %>
     <%= f.input :nombre,
                 required: false,
+                autofocus: true ,
                 hint: "deje el espacio en blanco si no quiere modificarlo",
                 input_html: { autocomplete: "nombre" }%>
     <%= f.input :apellido,

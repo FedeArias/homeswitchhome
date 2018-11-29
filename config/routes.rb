@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   get 'auction1s/index'
   get 'Subastas_adheridas' => 'auction1s#list_auction', as: 'lista'
   get 'buscar' => 'properties#search', as: 'search'
- get 'Sub' => 'auction1s#index'
+  get 'Sub' => 'auction1s#index'
+  get 'info' => 'users#show', as: 'muestra'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
