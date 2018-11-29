@@ -1,14 +1,10 @@
 
-
+ <div class="container-fluid">
 <p>
   <strong>Nombre:</strong>
-  <%= @auction1.nombre %>
+  <%= @auction1.property.nombre %>
 </p>
 
-<p>
-  <strong>Precio:</strong>
-  <%= @auction1.precio %>
-</p>
 
 <p>
   <strong>Puja:</strong>
@@ -20,6 +16,7 @@
   <%= @auction1.fechanew %>
 </p>
 
-
-<%= link_to 'editar', edit_auction1_path(@auction1) %> |
+<%= link_to 'editar', edit_auction1_path( @auction1.property_id) %> |
 <%= link_to 'atras', auction1s_path %>
+</div>
+

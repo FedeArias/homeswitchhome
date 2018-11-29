@@ -40,6 +40,7 @@
 </style>
 
   <body>
+   
  <nav class="navbar navbar-expand-lg navbar-custom p-0">
   <%= image_tag("HSH-Logo.svg", size:"60x60") %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,13 +56,10 @@
         <a class="nav-link", href="<%=properties_path%>">Propiedades</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link", href="<%=auction1s_path%>">Subastas</a>
+        <a class="nav-link", href="<%= auction1s_path%>">Subastas</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Hot Sale</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="<%=lista_path%>">Subastas adheridas</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" action= "<%= properties_path%>">
@@ -72,8 +70,7 @@
   </div>
 </nav>
 
-    
-  </body>
+</body>
   <div class="container">
 
 
@@ -87,20 +84,12 @@
   <%= link_to "Iniciar sesion", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
     <div class="container">
-    <% if flash[:notice] %>
-      <div class= "alert alert-info">
-        <%= notice %>
-      </div>
-    <% end %>
     <% if @mensaje %>
       <div class= "alert alert-danger">
         <%= @mensaje %>
       </div>
     <% end %>
-      <%= yield %>
     </div>
-     
-</html>
     <% if @aviso %>
       <div class="alert alert-info">
         <%= @aviso %>
@@ -117,4 +106,8 @@
   </body>
 
 
+
+
+  
+</html>
  

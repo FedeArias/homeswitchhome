@@ -1,5 +1,6 @@
+<!DOCTYPE html>
 <p id="notice"><%= notice %></p>
-
+<div class="container-fluid">
 <p>
   <strong>Nombre:</strong>
   <%= @property.nombre %>
@@ -19,6 +20,67 @@
   <strong>Descripcion del lugar:</strong>
   <%= @property.descripcionLug %>
 </p>
+<p>
+  <strong>Monto:</strong>
+  <%= @property.monto %>
+</p>
 
 <%= link_to 'editar', edit_property_path(@property) %> |
 <%= link_to 'atras', properties_path %>
+
+</div>
+
+<% if @property.nombre == "Cabaña del rio" %>
+
+  <%= image_tag("cabaña del rio/cabañadelrio.jpg", size:"800x400") %>
+  <%= image_tag("cabaña del rio/cabañadelrio2.jpg", size:"800x400") %>
+  <%= image_tag("cabaña del rio/cabañadelrio3.jpg", size:"800x400") %>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+ <%end%>
+
+ <% if @property.nombre == "Cabaña de la motaña" %>
+
+  <%= image_tag("cabaña de la montaña/cabañadelamontaña.jpg", size:"800x400") %>
+  <%= image_tag("cabaña de la montaña/cabañadelamontaña3.jpg", size:"800x400") %>
+  <%= image_tag("cabaña de la montaña/cabañandelamontaña2.jpg", size:"800x400") %>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+ <%end%>
+ <% if @property.nombre == "Castillo del conde" %>
+
+  <%= image_tag("castillo del conde/castillodelconde.jpg", size:"800x400") %>
+  <%= image_tag("castillo del conde/castillodelconde2.jpg", size:"800x400") %>
+  <%= image_tag("castillo del conde/castillodelconde3.jpg", size:"800x400") %>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+ <%end%>
+
+ <% if @property.nombre == "Waikiki" %>
+
+  <%= image_tag("waikiki/waikiki.jpg", size:"800x400") %>
+  <%= image_tag("waikiki/waikiki2.jpg", size:"800x400") %>
+  <%= image_tag("waikiki/waikiki3.jpg", size:"800x400") %>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+ <%end%>
+
+ <% if @property.nombre == "Le togre france" %>
+
+  <%= image_tag("letogrefrance/france.jpg", size:"800x400") %>
+  <%= image_tag("letogrefrance/france2.jpg", size:"800x400") %>
+  <%= image_tag("letogrefrance/france3.jpg", size:"800x400") %>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+ <%end%>
+
+ <% if @property.nombre == "La choza" %>
+
+  <%= image_tag("la choze/lachoze.jpg", size:"800x400") %>
+  <%= image_tag("la choze/lachoze2.jpg", size:"800x400") %>
+  <%= image_tag("la choze/lachoze.jpg", size:"800x400") %>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+ <%end%>
+ 
+

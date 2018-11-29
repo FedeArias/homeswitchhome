@@ -16,7 +16,7 @@ class PropertiesController < ApplicationController
         @property = Property.new
     end
     def create 
-        @property = Property.new(params.require(:property).permit(:descripcion, :nombre, :lugar, :descripcionLug))
+        @property = Property.new(params.require(:property).permit(:descripcion, :nombre, :lugar, :descripcionLug, :monto, :disponible))
       if @property.save
         redirect_to properties_path, notice: 'La propiedad se creo correctamente.'
       else
@@ -37,7 +37,7 @@ class PropertiesController < ApplicationController
     end
     def update
         @property = Property.find(params[:id])
-      if @property.update(params.require(:property).permit(:descripcion, :nombre, :lugar))
+      if @property.update(params.require(:property).permit(:descripcion, :nombre, :lugar, :monto, :disponible))
         redirect_to properties_path, notice: 'La propiedad se modifico correctamente.'
       else
         render :edit 
@@ -53,6 +53,11 @@ class PropertiesController < ApplicationController
     
     end
 
+     def veri
+        @property= Property.find(params[:id])
+        @property.disponible=true
+     end
     def home
+        
     end 
 end

@@ -3,16 +3,15 @@
   <div class="container-fluid">
   
   <div class="form-group">
-  
  <span class="border border-primary"></span>
     <%=f.label :nombre, @auction1.property.nombre%>
     <%= f.hidden_field :property_id%>
  <span class="border border-primary"></span>
   </div>
    <div class="form-group">
-    <%=f.label :precio, 'Precio'%>
-    <%=f.text_field :precio, class: 'form-control', placeholder: 'Ingrese precio de la propiedad', required: true %>
-  </div>
+    <%=f.label :monto, @auction1.property.monto %>
+    <%= f.hidden_field :property_id%>
+ </div>
    <div class="form-group">
     <%=f.label :puja, 'Puja '%>
     <%=f.text_field :puja, class: 'form-control', placeholder: 'Ingrese puja', required: true %>
@@ -25,10 +24,6 @@
   </div>
   
 </div>
-
-  
-    <%= f.submit 'crear nueva subasta', class: 'btn btn-primary' %>
-  
-
+<%= f.submit 'crear nueva propiedad', class: 'btn btn-primary' %>
   
 <% end %>

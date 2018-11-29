@@ -20,6 +20,10 @@
     <%=f.text_field :descripcionLug, class: 'form-control', placeholder: 'Ingrese la descripcion del lugar donde se encuentra la propiedad', required: true %>
 
   </div>
+   <div class="form-group">
+    <%=f.label :monto, 'monto'%>
+    <%=f.text_field :monto, class: 'form-control', placeholder: 'Ingrese monto de la propiedad', required: true %>
+  </div>
   <%= f.submit 'crear nueva propiedad', class: 'btn btn-primary' %>
   <%= link_to 'atras', properties_path %>
   <% end %>
