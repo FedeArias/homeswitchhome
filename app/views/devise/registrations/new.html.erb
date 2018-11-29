@@ -16,14 +16,20 @@
                 required: true,
                 autofocus: true ,
                 input_html: { autocomplete: "DNI" }%>
-    <%= f.input :fechaDeNacimiento,
+    <input type= "date" name= "fechaNacimiento">
+    <%= f.input :codigoTarjeta,
                 required: true,
                 autofocus: true ,
-                input_html: { autocomplete: "fechaDeNacimiento" }%>
-    <%= f.input :datosDeTarjeta,
+                input_html: { autocomplete: "codigoTarjeta" }%>
+    <%= f.input :numeroTarjeta,
                 required: true,
                 autofocus: true ,
-                input_html: { autocomplete: "datosDeTarjeta" }%>
+                input_html: { autocomplete: "numeroTarjeta" }%>
+    <input type= "date" name= "vencimientoTarjeta">
+    <%= f.input :email,
+                required: true,
+                autofocus: true ,
+                input_html: { autocomplete: "email" }%>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),

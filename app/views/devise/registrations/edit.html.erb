@@ -21,14 +21,16 @@
                 required: false,
                 hint: "deje el espacio en blanco si no quiere modificarlo",
                 input_html: { autocomplete: "DNI" }%>
-    <%= f.input :fechaDeNacimiento,
-                required: false,
-                hint: "deje el espacio en blanco si no quiere modificarlo",
-                input_html: { autocomplete: "fechaDeNacimiento" }%>
-    <%= f.input :datosDeTarjeta,
-                required: false,
-                hint: "deje el espacio en blanco si no quiere modificarlo",
-                input_html: { autocomplete: "datosDeTarjeta" }%>
+    <input type= "date" name= "vencimientoTarjeta">
+    <%= f.input :codigoTarjeta,
+                required: true,
+                autofocus: true ,
+                input_html: { autocomplete: "codigoTarjeta" }%>
+    <%= f.input :numeroTarjeta,
+                required: true,
+                autofocus: true ,
+                input_html: { autocomplete: "numeroTarjeta" }%>
+    <input type= "date" name= "vencimientoTarjeta">
     <%= f.input :password,
                 hint: "deje el espacio en blanco si no quiere modificarlo",
                 required: false,
