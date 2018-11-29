@@ -21,6 +21,7 @@
                 required: false,
                 hint: "deje el espacio en blanco si no quiere modificarlo",
                 input_html: { autocomplete: "DNI" }%>
+    <%="Fecha de nacimiento"%>
     <input type= "date" name= "vencimientoTarjeta">
     <%= f.input :codigoTarjeta,
                 required: true,
@@ -30,6 +31,7 @@
                 required: true,
                 autofocus: true ,
                 input_html: { autocomplete: "numeroTarjeta" }%>
+    <%="Fecha de vencimiento de la tarjeta"%>
     <input type= "date" name= "vencimientoTarjeta">
     <%= f.input :password,
                 hint: "deje el espacio en blanco si no quiere modificarlo",
