@@ -1,39 +1,35 @@
 
-<h1>Subastas adheridas</h1>
-
-<%= form_for @auction1, :url => { :action => :check }, :method => :POST do |f|  %>
- 
+<%= form_for(@auction1) do |f| %>
   <div class="container-fluid">
   
-    <div class="form-group">
-  
-      <span class="border border-primary"></span>
-         <%=f.label :nombre, @auction1.property.nombre%>
-         <%= f.hidden_field :property_id%>
-      <span class="border border-primary"></span>
-   </div>
-
-    <div class="form-group">
-        <h10>Puja</h10>
-        <%=f.label :puja, @auction1.puja%>
-    </div>
-
-    <div class="form-group">
-    <h10>Fecha</h10>
-     <%=f.label :fechanew, @auction1.fechanew%>
-   </div>
-  
-       
-        <div class="form-group">
-         <%=f.label :monto, ' Pujar '%>
-         <%=f.text_field :monto, class: 'form-control', placeholder: 'Ingrese puja', required: true %>
-       </div>
-   
-       
-      
-   
+  <div class="form-group">
+ <span class="border border-primary"></span>
+    <%=f.label :nombre, @auction1.property.nombre%>
+    <%= f.hidden_field :property_id%>
+ <span class="border border-primary"></span>
   </div>
-  <%= link_to 'pujar', verificar_path(:puja => @auction1.puja, :monto => @auction1.monto, :id => @auction1.property_id, :fechanew => @auction1.fechanew),method: :check, class: 'btn btn-primary' %>
+  
+   <div class="form-group">
+   <%=f.label :puja, "Puja Actual" %>
+    <%=f.label :puja, @auction1.puja %>
+    <%= f.hidden_field :property_id%>
+ </div>
+ 
 
-  <%end%>
+  
+  <div class="form-group">
+  <%=f.label :fechanew, 'fecha por la que se subasta:'%>
+    <%=f.label :fechanew, @auction1.fechanew%>
+    <%= f.hidden_field :property_id%>
+  </div>
+
+   <div class="form-group">
+    <%=f.label :monto, "Ingrese Puja" %>
+   <%=f.text_field :monto, class: 'form-control', placeholder: 'Ingrese puja', required: true %>
+   </div>
+  
+</div>
+ <%= f.submit 'Pujar', class: 'btn btn-primary' %>
+  
+<% end %>
   

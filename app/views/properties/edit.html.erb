@@ -24,6 +24,10 @@
     <%=f.label :monto, 'Monto'%>
     <%=f.text_field :monto, class: 'form-control', placeholder: 'Ingrese monto de la propiedad', required: true %>
   </div>
+  <div class="form-group">
+    <%=f.label :disponible, 'disponible'%>
+    <%=f.text_field :disponible, class: 'form-control', placeholder: '¿Iniciar la subasta?', required: true %>
+  </div>
 
   <%= f.submit%>
   <%= link_to 'atras', properties_path %>

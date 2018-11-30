@@ -9,8 +9,9 @@ class Auction1sController < ApplicationController
   end
 
   def list_auction
-    @auction1 = Auction1.find(params[:property_id])
+   @auction1 = Auction1.find(params[:property_id])
     @auction1.property_id=params[:property_id]
+  
   end
   
   
@@ -24,6 +25,7 @@ class Auction1sController < ApplicationController
   def new
     @auction1= Auction1.new
     @auction1.property_id=params[:property_id]
+  
   end
 
   # GET /auction1s/1/edit
@@ -38,11 +40,12 @@ class Auction1sController < ApplicationController
   end
 
   def check
-    @auction1 = Auction1.new
-    @auction1.monto = params[:monto]
-    @auction1.puja = params[:puja]
-    @auction1.property_id = params[:id]
-    @auction1.fechanew = params[:fechanew]
+    
+    @auction1.property_id=params[:property_id]
+  #  @auction1.monto = params[:monto]
+   # @auction1.puja = params[:puja]
+    #@auction1.property_id = params[:id]
+    #@auction1.fechanew = params[:fechanew]
     respond_to do |format|
       if @auction1.monto > @auction1.puja   
         @auction1.puja=@auction1.monto
@@ -85,18 +88,32 @@ end
   # PATCH/PUT /auction1s/1
   # PATCH/PUT /auction1s/1.json
   def update
+    
     respond_to do |format|
-      
       if @auction1.update(auction1_params)
-        @mensaje= 'Subasta se acutalizo con exito'
-        format.html { redirect_to @auction1, notice: 'Subasta se acutalizo con exito'  }
-       
-      else
-        format.html { render :edit }
+        # @mensaje= 'Subasta se acutalizo con exito'
+         format.html { redirect_to @auction1, notice: 'Subasta se acutalizo con exito'  }
+   
+       else
+         format.html { render :edit }
+       end
+      if (@auction1.monto > @auction1.puja )  
+        @auction1.puja= @auction1.monto
+        format.html { redirect_to @auction1, notice: 'Subasta Actualizada'  }
+
+    else
+        @mensaje= 'la puja debe ser mayor a la actual'
+        format.html { redirect_to lista_path(property_id: @auction1.property_id), notice: 'la puja debe ser mayor a la actual'  }
 
       end
+      if @auction1.update(auction1_params)
+       # @mensaje= 'Subasta se acutalizo con exito'
+        format.html { redirect_to @auction1, notice: 'Subasta se acutalizo con exito'  }
+  
+      else
+        format.html { render :edit }
+      end
     end
-   
   end
 
   # DELETE /auction1s/1
