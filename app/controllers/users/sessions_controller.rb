@@ -22,6 +22,6 @@ class Users::SessionsController < Devise::SessionsController
 
  #If you have extra params to permit, append them to the sanitizer.
    def configure_sign_in_params
-     devise_parameter_sanitizer.permit(:sign_in, keys: [:nombre, :apellido, :DNI, :fechaNacimiento, :codigoTarjeta, :numeroTarjeta, :vencimientoTarjeta])
+     devise_parameter_sanitizer.permit(:sign_in, keys: [:nombre, :apellido, :DNI, :edad, :codigoTarjeta, :numeroTarjeta, :vencimientoTarjeta])
   end
 end

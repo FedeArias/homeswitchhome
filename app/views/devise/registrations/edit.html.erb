@@ -11,7 +11,6 @@
     <% end %>
     <%= f.input :nombre,
                 required: false,
-                autofocus: true ,
                 hint: "deje el espacio en blanco si no quiere modificarlo",
                 input_html: { autocomplete: "nombre" }%>
     <%= f.input :apellido,
@@ -22,8 +21,10 @@
                 required: false,
                 hint: "deje el espacio en blanco si no quiere modificarlo",
                 input_html: { autocomplete: "DNI" }%>
-    <%="Fecha de nacimiento"%>
-    <input type= "date" name= "vencimientoTarjeta">
+    <%= f.input :edad,
+                required: false,
+                hint: "deje el espacio en blanco si no quiere modificarlo",
+                input_html: { autocomplete: "edad" }%>
     <%= f.input :codigoTarjeta,
                 required: true,
                 autofocus: true ,
@@ -33,7 +34,10 @@
                 autofocus: true ,
                 input_html: { autocomplete: "numeroTarjeta" }%>
     <%="Fecha de vencimiento de la tarjeta"%>
-    <input type= "date" name= "vencimientoTarjeta">
+    <div class="form-group">
+    <%=f.label :vencimientoTarjeta, 'Fecha'%>
+    <%=f.date_select :vencimientoTarjeta  %>
+    </div>
     <%= f.input :password,
                 hint: "deje el espacio en blanco si no quiere modificarlo",
                 required: false,
