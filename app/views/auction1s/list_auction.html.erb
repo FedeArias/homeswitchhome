@@ -1,39 +1,35 @@
 
-<h1>Subastas adheridas</h1>
-   
+<%= form_for(@auction1) do |f| %>
+  <div class="container-fluid">
+  
+  <div class="form-group">
+ <span class="border border-primary"></span>
+    <%=f.label :nombre, @auction1.property.nombre%>
+    <%= f.hidden_field :property_id%>
+ <span class="border border-primary"></span>
+  </div>
+  
+   <div class="form-group">
+   <%=f.label :puja, "Puja Actual" %>
+    <%=f.label :puja, @auction1.puja %>
+    <%= f.hidden_field :property_id%>
+ </div>
+ 
 
-<p id="notice"><%= notice %></p>
+  
+  <div class="form-group">
+  <%=f.label :fechanew, 'fecha por la que se subasta:'%>
+    <%=f.label :fechanew, @auction1.fechanew%>
+    <%= f.hidden_field :property_id%>
+  </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Puja actual</th>
-      <th>Fecha</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @auction1s.each do |auction1| %>
-      <tr>
-        <td><%= auction1.nombre %></td>
-        <td><%= auction1.puja %></td>
-        <td><%= auction1.fecha %></td>
-       <td><form class="form-inline">
-        <div class="form-group mb-2">
-          <label for="staticEmail2" class="sr-only">Email</label>
-          <input type="text" readonly class="form-control-plaintext" id="staticEmail2" >
-         </div>
-          <div class="form-group mx-sm-3 mb-2">
-           <input type="ingrese puja" class="form-control" placeholder="ingrese puja">
-          </div>
-        <button type="submit" class="btn btn-primary mb-2">pujar</button>
-        </form></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
+   <div class="form-group">
+    <%=f.label :monto, "Ingrese Puja" %>
+   <%=f.text_field :monto, class: 'form-control', placeholder: 'Ingrese puja', required: true %>
+   </div>
+  
+</div>
+ <%= f.submit 'Pujar', class: 'btn btn-primary' %>
+  
+<% end %>
+  

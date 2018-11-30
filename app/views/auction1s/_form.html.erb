@@ -1,27 +1,30 @@
 
 <%= form_for(@auction1) do |f| %>
- 
   <div class="container-fluid">
+  
   <div class="form-group">
-    <%=f.label :nombre, 'Nombre '%>
-    <%=f.text_field :nombre, class: 'form-control', placeholder: 'Ingrese nombre de la propiedad a subastar', required: true %>
+ <span class="border border-primary"></span>
+    <%=f.label :nombre, @auction1.property.nombre%>
+    <%= f.hidden_field :property_id%>
+ <span class="border border-primary"></span>
   </div>
    <div class="form-group">
-    <%=f.label :precio, 'Precio'%>
-    <%=f.text_field :precio, class: 'form-control', placeholder: 'Ingrese precio de la propiedad', required: true %>
-  </div>
+    <%=f.label :monto, @auction1.property.monto %>
+    <%= f.hidden_field :property_id%>
+ </div>
    <div class="form-group">
     <%=f.label :puja, 'Puja '%>
     <%=f.text_field :puja, class: 'form-control', placeholder: 'Ingrese puja', required: true %>
   </div>
+ 
+
+  
   <div class="form-group">
-    <%=f.label :fecha, 'Fecha'%>
-    <%=f.text_field :fecha, class: 'form-control', placeholder:  'Ingrese fecha', required: true %>
+    <%=f.label :fechanew, 'Fecha'%>
+    <%=f.date_select :fechanew  %>
   </div>
   
 </div>
-
-  <div class="form-actions">
-    <%= f.submit 'crear nueva subasta', class: 'btn btn-primary' %>
-  </div>
+<%= f.submit 'crear nueva propiedad', class: 'btn btn-primary' %>
+  
 <% end %>

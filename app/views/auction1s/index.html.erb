@@ -1,13 +1,12 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Subastas</h1>
 <table class="table">
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Precio</th>
       <th>Puja</th>
-      <th>Fecha</th>
+      <th>Fecha a subastar</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,14 +14,11 @@
   <tbody>
     <% @auction1s.each do |auction1| %>
       <tr>
-        <td><%= auction1.nombre %></td>
-        <td><%= auction1.precio %></td>
+        <td><%= auction1.property.nombre %></td>
         <td><%= auction1.puja %></td>
-        <td><%= auction1.fecha %></td>
+        <td><%= I18n.localize(auction1.fechanew) if auction1.fechanew  %></td>
         <td><%= link_to 'mostrar', auction1, class: 'btn btn-info btn-sm' %></td>
-        <td><%= link_to 'editar', edit_auction1_path(auction1), class: 'btn btn-info btn-sm' %></td>
-        <td><%= link_to 'eliminar', auction1, method: :delete, data: { confirm: '¿realmente quiere eliminar la subasta?' }, class: 'btn btn-danger btn-sm'%></td>
-      </tr>
+  </tr>
     <% end %>
   </tbody>
 </table>
