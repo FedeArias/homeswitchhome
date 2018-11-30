@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :petitions
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   validates :nombre, :apellido, :DNI, :edad, :codigoTarjeta, :numeroTarjeta, :vencimientoTarjeta, presence: true

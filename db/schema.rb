@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181130025559) do
+ActiveRecord::Schema.define(version: 20181130065118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,12 @@ ActiveRecord::Schema.define(version: 20181130025559) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "petitions", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "premia", force: :cascade do |t|
     t.string "User"
     t.datetime "created_at", null: false
@@ -98,16 +104,16 @@ ActiveRecord::Schema.define(version: 20181130025559) do
     t.string "email", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "premium"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.boolean "esAdmin"
     t.date "vencimientoTarjeta"
     t.integer "codigoTarjeta"
     t.string "numeroTarjeta"
     t.integer "edad"
+    t.boolean "premium", default: false
+    t.boolean "esAdmin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
