@@ -28,12 +28,11 @@ class PetitionsController < ApplicationController
   # POST /petitions.json
   def create
     @petition = Petition.new(petition_params)
+    
     respond_to do |format|
-      
       if @petition.save
         format.html { redirect_to root_path, notice: 'Se creo la peticion.' }
       else
-        
         format.html { render :new }
       end
     end
