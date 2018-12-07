@@ -29,12 +29,9 @@ class PropertiesController < ApplicationController
     end
     def destroy
         @property = Property.find(params[:id])
-        if @property.destroy
-           redirect_to properties_path, notice: "La propiedad '#{@property.nombre}' fue eliminada correctamente"
-        else
-            redirect_to properties_path, notice: "ERROR al eliminar la propiedad" #{@property.nombre}
-
-        end
+        @property.disponible = false
+        @property.save
+        redirect_to properties_path
     end
 
     def subastada
