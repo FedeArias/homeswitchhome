@@ -61,6 +61,16 @@ class PetitionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def validate
+    petition = Petition.find(petition_params[:id])
+    user = petition.user
+    if params[:commit] == "Aceptar" 
+        user.premium  = !user.premium
+       user.save
+    end
+    petition.destroy
+    redirect_to root_path, notice: "Se trabajo"
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -70,18 +80,8 @@ class PetitionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def petition_params
-      params.require(:petition).permit(:email)
+      params.require(:petition).permit(:email, :id)
     end
 
-    def validate
-      if params[:commit] == "Aceptar"
-        if @petition.user.premium == 0
-          petition.user.premium  = 1
-         else
-         petition.user.premium  = 0
-        end
-        petition.save
-        end
-      @petition.destroy
-    end
+
 end

@@ -5,21 +5,23 @@
 <table>
 
   <tbody>
-    <% @petitions.each do |petition| %>
-    <%= form_for :petition, :url => { :petition => :validate } do |f|%>
+      <% @petitions.each do |petition| %>
+      <%= form_for petition, url: validar_path do |f|%>
       <div class="container-fluid">
-        <div class="form-group">
-    <span class="border border-primary"></span>
-       <%=f.label :email, petition.user.email%>
-       <%= f.hidden_field :user_id%>
-     <span class="border border-primary"></span>
-    </div>
+      <div class="form-group">
+      <span class="border border-primary"></span>
+      <%=f.label :email, petition.user.email%>
+      <%= f.hidden_field :id %>
+      <span class="border border-primary"></span>
+      
    
-    <%= f.submit 'Aceptar', class: 'btn btn-primary' %>
-    <%= f.submit 'Rechazar', class: 'btn btn-primary' %>
+      <%= f.submit 'Aceptar', class: 'btn btn-primary' %>
+      <%= f.submit 'Rechazar', class: 'btn btn-primary' %>
+      </div>
+      </div>
     
-    <% end %>
-    <% end %>
+      <% end %>
+      <% end %>
   </tbody>
 </table>
 
