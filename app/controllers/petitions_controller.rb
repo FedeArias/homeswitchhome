@@ -10,14 +10,14 @@ class PetitionsController < ApplicationController
   # GET /petitions/1
   # GET /petitions/1.json
   def show
-  
-    
-  end
+ 
+  end 
+
 
   # GET /petitions/new
   def new
     @petition = Petition.new
-    @petition.email=params[:email]
+    @petition.user_id = current_user.id
   end
 
   # GET /petitions/1/edit
@@ -27,7 +27,7 @@ class PetitionsController < ApplicationController
   # POST /petitions
   # POST /petitions.json
   def create
-    @petition = Petition.new(petition_params)
+    @petition = Petition.new(params.require(:petition).permit(:user_id))
     
     respond_to do |format|
       if @petition.save
@@ -61,6 +61,16 @@ class PetitionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def validate
+    petition = Petition.find(petition_params[:id])
+    user = petition.user
+    if params[:commit] == "Aceptar" 
+        user.premium  = !user.premium
+       user.save
+    end
+    petition.destroy
+    redirect_to root_path, notice: "Se trabajo"
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -70,6 +80,8 @@ class PetitionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def petition_params
-      params.require(:petition).permit(:email)
+      params.require(:petition).permit(:email, :id)
     end
+
+
 end

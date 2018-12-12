@@ -3,21 +3,25 @@
 <h1>Petitions</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
   <tbody>
-    <% @petitions.each do |petition| %>
-      <tr>
-        <td><%= petition.email %></td>
-        <td><%= link_to 'Show', petition %></td>
-        <td><%= link_to 'Destroy', petition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+      <% @petitions.each do |petition| %>
+      <%= form_for petition, url: validar_path do |f|%>
+      <div class="container-fluid">
+      <div class="form-group">
+      <span class="border border-primary"></span>
+      <%=f.label :email, petition.user.email%>
+      <%= f.hidden_field :id %>
+      <span class="border border-primary"></span>
+      
+   
+      <%= f.submit 'Aceptar', class: 'btn btn-primary' %>
+      <%= f.submit 'Rechazar', class: 'btn btn-primary' %>
+      </div>
+      </div>
+    
+      <% end %>
+      <% end %>
   </tbody>
 </table>
 

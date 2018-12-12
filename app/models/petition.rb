@@ -1,3 +1,3 @@
 class Petition < ApplicationRecord
-    belongs_to :current_user
+    belongs_to :user
 end

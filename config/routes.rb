@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'Sub' => 'auction1s#index'  
   post 'Subastas_adheridas' => "auction1s#check", as: 'verificar'
   post 'property' => "properties#subastada", as: 'veri'
+  patch 'validar', to: 'petitions#validate'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

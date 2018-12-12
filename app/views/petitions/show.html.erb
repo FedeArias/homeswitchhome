@@ -5,11 +5,7 @@
   <%= @petition.email %>
   
 </p>
-<%if @petition.current_user.premium== true %>
-  <% @petition.current_user.premium= false %>
-  <%else%>
-    <% @petition.current_user.premium= true %>
-  <%end%>
+
 
 <%= link_to 'Edit', edit_petition_path(@petition) %> |
 <%= link_to 'Back', petitions_path %>

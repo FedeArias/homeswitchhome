@@ -14,6 +14,7 @@
 <tbody>
     <% @properties.each do |property| %>
       <tr>
+      <%if property.disponible%>
       <td> <%= property.nombre%> </td>
       <td> <%= property.descripcion%> </td>
       <td> <%= property.lugar%> </td>
@@ -24,6 +25,7 @@
       <td> <%=link_to 'Crear Subasta', new_auction1_path(property_id: property.id), class: 'btn btn-primary btn-sm'%>
       <td> <%=link_to 'Me interesa', veri_path(property_id: property.id), method: :subastada, class: 'btn btn-primary btn-sm'%>
         </td>
+        <%end%>
         </tr>
     <%end%>
 </tbody>
