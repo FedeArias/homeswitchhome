@@ -39,14 +39,21 @@ class PropertiesController < ApplicationController
 
     def subastada
         @property = Property.find(params[:property_id])
+        @auction1 = Auction1.find(params[:property_id])
         respond_to do |format|
+        if @auction1.fechainicio<=Time.now &&  Time.now<= (@auction1.fechainicio + 3.day)
             
-            if @property.disponible == true
               format.html{ redirect_to lista_path(property_id: @property.id), notice: "Comience a pujar" }
-            else
-                format.html{ redirect_to properties_path, notice: "Le avisaremos cuando comience la subasta"}
+            
+        else 
+            if Time.now > @auction1.fechainicio
+            format.html{ redirect_to properties_path, notice: "Subasta Finalizada"}
+            else 
+                format.html{ redirect_to properties_path, notice: "La subasta no ha comenzado"}
             end
-         end
+
+        end
+     end
     end
 
     def update
@@ -74,4 +81,8 @@ class PropertiesController < ApplicationController
     def home
         
     end 
+
+    def property_params
+        params.require(:property).permit(:descripcion,:nombre, :lugar,:costo, :descripcionLug, :subastada, :disponible, :monto, :precio, auction1s: [:id, :fechainicio]) 
+      end
 end

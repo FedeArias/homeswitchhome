@@ -15,11 +15,9 @@
     <%= f.hidden_field :property_id%>
  </div>
  
-
-  
   <div class="form-group">
   <%=f.label :fechanew, 'fecha por la que se subasta:'%>
-    <%=f.label :fechanew, @auction1.fechanew%>
+    <%=f.label :fechanew,  I18n.localize(@auction1.fechanew)%>
     <%= f.hidden_field :property_id%>
   </div>
 

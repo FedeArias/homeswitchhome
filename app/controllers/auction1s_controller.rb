@@ -90,13 +90,14 @@ end
   def update
     
     respond_to do |format|
-      if @auction1.update(auction1_params)
+      @auction1.update(auction1_params)
+      #if @auction1.update(auction1_params)
         # @mensaje= 'Subasta se acutalizo con exito'
-         format.html { redirect_to @auction1, notice: 'Subasta se acutalizo con exito'  }
+        # format.html { redirect_to @auction1, notice: 'Subasta se acutalizo con exito'  }
    
-       else
-         format.html { render :edit }
-       end
+       #else
+       #  format.html { render :edit }
+      # end
       if (@auction1.monto > @auction1.puja )  
         @auction1.puja= @auction1.monto
         format.html { redirect_to @auction1, notice: 'Subasta Actualizada'  }
@@ -106,13 +107,7 @@ end
         format.html { redirect_to lista_path(property_id: @auction1.property_id), notice: 'la puja debe ser mayor a la actual'  }
 
       end
-      if @auction1.update(auction1_params)
-       # @mensaje= 'Subasta se acutalizo con exito'
-        format.html { redirect_to @auction1, notice: 'Subasta se acutalizo con exito'  }
-  
-      else
-        format.html { render :edit }
-      end
+       @auction1.update(auction1_params)
     end
   end
 
@@ -136,7 +131,7 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def auction1_params
-      params.require(:auction1).permit(:nombre, :puja, :fechanew, :property_id, :monto)
+      params.require(:auction1).permit(:nombre, :puja, :fechanew, :property_id, :monto, :fechainicio)
     end
     
  
