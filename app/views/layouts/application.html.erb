@@ -55,19 +55,27 @@
         <li class="nav-item">
         <a class="nav-link", href="<%=properties_path%>">Propiedades</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link", href="<%= auction1s_path%>">Subastas</a>
-      </li>
-      <li class="nav-item">
+      
         <a class="nav-link disabled" href="<%= hotsales_path %>">Hot Sale</a>
       </li>
 
+
+      <% if signed_in? &&  current_user.esAdmin  %>
+       <li class="nav-item">
+        <a class="nav-link", href="<%= auction1s_path%>">Subastas</a>
+      </li>
        <li class="nav-item">
         <a class="nav-link disabled" href="<%=petitions_path%>">Peticiones</a>
-      </li>   
-      <li class="nav-item">
+      </li>  
+       <li class="nav-item">
         <a class="nav-link disabled" href="<%=terminar_path%>">Subastas Terminadas</a>
-      </li>    
+      </li>  
+      <%end%>
+
+      
+
+       
+       
     </ul>
     <form class="form-inline my-2 my-lg-0" action= "<%= properties_path%>">
       <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="nombre">
