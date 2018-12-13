@@ -20,19 +20,29 @@ class PurchasesController < ApplicationController
   # GET /purchases/1/edit
   def edit
   end
-
-  # POST /purchases
+  
+# POST /purchases
   # POST /purchases.json
   def create
     @purchase = Purchase.new(purchase_params)
 
     respond_to do |format|
-      if @purchase.save
-        format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
-        format.json { render :show, status: :created, location: @purchase }
-      else
-        format.html { render :new }
-        format.json { render json: @purchase.errors, status: :unprocessable_entity }
+      if current_user.creditos > 0 
+        @user = current_user
+        @property = Property.find(@purchase.property_id)
+        @purchase.user = current_user
+        @properties.reservations.each do |reserv|
+          if @reservation.week == reserv.week
+            redirect_to @purchase, notice: 'La semana se encuentra ocupada.'
+          end
+        end
+          if @purchase.save
+           @user.update(creditos: @user.creditos - 1)
+           @property.purchases << @purchase
+           format.html { redirect_to @purchase, notice: 'La compra se concreto correctamente.' }
+          else
+           format.html { render :new }
+          end
       end
     end
   end
