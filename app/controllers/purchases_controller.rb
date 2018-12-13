@@ -31,7 +31,7 @@ class PurchasesController < ApplicationController
         @user = current_user
         @property = Property.find(@purchase.property_id)
         @purchase.user = current_user
-        @properties.reservations.each do |reserv|
+        @property.reservations.each do |reserv|
           if @reservation.week == reserv.week
             redirect_to @purchase, notice: 'La semana se encuentra ocupada.'
           end
@@ -71,6 +71,8 @@ class PurchasesController < ApplicationController
     end
   end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_purchase
@@ -79,6 +81,6 @@ class PurchasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
-      params.require(:purchase).permit(:week)
+      params.require(:purchase).permit(:week, :user_id, :property_id)
     end
 end
