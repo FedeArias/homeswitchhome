@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :purchases
   resources :petitions
     devise_for :users, controllers: {
       sessions: 'users/sessions'
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
   post 'Subastas_adheridas' => "auction1s#check", as: 'verificar'
   post 'property' => "properties#subastada", as: 'veri'
   patch 'validar', to: 'petitions#validate'
+ 
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

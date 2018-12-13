@@ -71,4 +71,8 @@ class PropertiesController < ApplicationController
     def home
         
     end 
+
+
+
+    
 end
