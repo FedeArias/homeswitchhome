@@ -1,13 +1,13 @@
-
-
-<h1>Subastas</h1>
+<h1>Subastas Terminadas</h1>
 <table class="table">
   <thead>
     <tr>
       <th>Nombre</th>
       <th>Puja</th>
       <th>Fecha a subastar</th>
-        <th>Fecha de Inicio</th>
+      <th>Fecha de Inicio</th>
+      <th> Usuario Ganador  </th>
+        
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,16 +15,22 @@
   <tbody>
     <% @auction1s.each do |auction1| %>
       <tr>
+      <% if auction1.fechainicio + 3.day < Time.now %>
         <td><%= auction1.property.nombre %></td>
         <td><%= auction1.puja %></td>
         <td><%= I18n.localize(auction1.fechanew) if auction1.fechanew  %></td>
          <td><%= I18n.localize(auction1.fechainicio) if auction1.fechainicio  %></td>
-          <td><%= link_to 'mostrar', auction1, class: 'btn btn-info btn-sm' %></td>
+      <%if auction1.puja>= auction1.montominimo%>
+          <td><%= auction1.ganador  %></td>
+
+          <%else%>
+           <td><%= 'ninguno'  %></td>
+          <%end%>
+      
+       <td><%= link_to 'Terminar', auction1, method: :delete, class: 'btn btn-danger btn-sm'%></td> <%end%>
   </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'nueva subasta', new_auction1_path, class: 'btn btn-primary' %>

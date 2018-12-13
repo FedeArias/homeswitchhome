@@ -1,2 +1,0 @@
-class Auctionn < ApplicationRecord
-end

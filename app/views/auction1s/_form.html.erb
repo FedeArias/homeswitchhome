@@ -20,14 +20,16 @@
 
   
   <div class="form-group">
-    <%=f.label :fechanew, 'Semana que se va a subastar'%>
-    <%=f.date_select :fechanew  %>
+    <%=f.label :fechanew, 'Semana a subastar:'%>
+   
+        <%=f.date_field :fechanew, { required:true}  %>
+  
   </div>
 
   <div class="form-group">
-    <%=f.label :fechainicio, 'Fecha Inicio'%>
-    <%=f.date_select :fechainicio  %>
-  </div>
+    <%=f.label :fechainicio, 'Fecha Inicio:'%>
+ <%=f.date_field :fechainicio, { required:true}  %>
+ </div>
   
 </div>
 <%= f.submit 'crear nueva propiedad', class: 'btn btn-primary' %>

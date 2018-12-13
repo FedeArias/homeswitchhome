@@ -1,0 +1,32 @@
+<h1>Fechas en las que se va a Subastar</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Puja</th>
+      <th>Fecha a subastar</th>
+      <th>Fecha de Inicio</th>
+      <th> Usuario Ganador  </th>
+        
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @auction1s.each do |auction1| %>
+      <tr>
+       
+            <% if auction1.property.nombre== @auction1.property.nombre%>
+        <td><%= auction1.property.nombre %></td>
+        <td><%= auction1.puja %></td>
+        <td><%= I18n.localize(auction1.fechanew) if auction1.fechanew  %></td>
+         <td><%= I18n.localize(auction1.fechainicio) if auction1.fechainicio  %></td> 
+      
+   <td> <%=link_to 'Me interesa', veri_path(property_id: auction1.property.id, auction1: auction1.id), method: :subastada, class: 'btn btn-primary btn-sm'%>
+        <%end%>
+  </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

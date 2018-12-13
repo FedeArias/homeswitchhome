@@ -13,6 +13,7 @@
    <%=f.label :puja, "Puja Actual" %>
     <%=f.label :puja, @auction1.puja %>
     <%= f.hidden_field :property_id%>
+     
  </div>
  
   <div class="form-group">
@@ -25,6 +26,7 @@
     <%=f.label :monto, "Ingrese Puja" %>
    <%=f.text_field :monto, class: 'form-control', placeholder: 'Ingrese puja', required: true %>
    </div>
+  
   
 </div>
  <%= f.submit 'Pujar', class: 'btn btn-primary' %>

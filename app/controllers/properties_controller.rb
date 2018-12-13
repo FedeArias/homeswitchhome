@@ -36,7 +36,7 @@ class PropertiesController < ApplicationController
 
     def subastada
         @property = Property.find(params[:property_id])
-        @auction1 = Auction1.find(params[:property_id])
+        @auction1 = Auction1.find(params[:auction1])
         respond_to do |format|
         if @auction1.fechainicio<=Time.now &&  Time.now<= (@auction1.fechainicio + 3.day)
             
@@ -44,9 +44,9 @@ class PropertiesController < ApplicationController
             
         else 
             if Time.now > @auction1.fechainicio
-            format.html{ redirect_to properties_path, notice: "Subasta Finalizada"}
+            format.html{ redirect_to fecha_path(property_id: @property.id), notice: "Subasta Finalizada"}
             else 
-                format.html{ redirect_to properties_path, notice: "La subasta no ha comenzado"}
+                format.html{ redirect_to fecha_path(property_id: @property.id), notice: "La subasta no ha comenzado"}
             end
 
         end

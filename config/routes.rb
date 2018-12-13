@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   post 'Subastas_adheridas' => "auction1s#check", as: 'verificar'
   post 'property' => "properties#subastada", as: 'veri'
   patch 'validar', to: 'petitions#validate'
+  get 'Subastas_Terminadas' => 'auction1s#terminadas', as: 'terminar' 
+  post 'Terminadas' => 'auction1s#delete', as: 'finalizar'
+  get 'fechas a subastar' => 'auction1s#fechas', as: 'fecha'  
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
