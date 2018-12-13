@@ -19,15 +19,19 @@
       <td> <%= property.descripcion%> </td>
       <td> <%= property.lugar%> </td>
       <td> <%= property.descripcionLug%> </td>
-      <td> <%=link_to 'Mostrar', property, class: 'btn btn-primary btn-sm'%>
-      <td> <%=link_to 'Editar', edit_property_path(property), class: 'btn btn-primary btn-sm'%>
-      <td> <%=link_to 'Eliminar', property, method: :delete, class: 'btn btn-danger btn-sm',data: { confirm: "¿Realmente desea eliminar la propiedad?"} %>
-      <td> <%=link_to 'Crear Subasta', new_auction1_path(property_id: property.id), class: 'btn btn-primary btn-sm'%>
-      <td> <%=link_to 'Alta HotSale', new_hotsale_path(property_id: property.id), class: 'btn btn-primary btn-sm'%>
-      <td> <%=link_to 'Subastas', fecha_path(property_id: property.id), class: 'btn btn-primary btn-sm'%>
-      <td> <%=link_to 'Me interesa', veri_path(property_id: property.id), method: :subastada, class: 'btn btn-primary btn-sm'%>
-      <td> <%=link_to 'Comprar semana', new_purchase_path(user_id: current_user.id, property_id: property.id), class: 'btn btn-primary btn-sm'%>
-
+      <% if signed_in? %>
+        <td> <%=link_to 'Mostrar', property, class: 'btn btn-primary btn-sm'%>
+        <td> <%=link_to 'Subastas', fecha_path(property_id: property.id), class: 'btn btn-primary btn-sm'%>
+         <% if current_user.premium || current_user.esAdmin %>
+               <td> <%=link_to 'Comprar semana', new_purchase_path(user_id: current_user.id, property_id: property.id), class: 'btn btn-primary btn-sm'%>
+            <%if current_user.esAdmin  %>
+                    <td> <%=link_to 'Editar', edit_property_path(property), class: 'btn btn-primary btn-sm'%>
+                    <td> <%=link_to 'Eliminar', property, method: :delete, class: 'btn btn-danger btn-sm',data: { confirm: "¿Realmente desea eliminar la propiedad?"} %>
+                    <td> <%=link_to 'Crear Subasta', new_auction1_path(property_id: property.id), class: 'btn btn-primary btn-sm'%>
+                    <td> <%=link_to 'Alta HotSale', new_hotsale_path(property_id: property.id), class: 'btn btn-primary btn-sm'%>
+            <%end%>
+         <%end%>
+     <%end%>
         </td>
         <%end%>
         </tr>
@@ -35,4 +39,6 @@
 </tbody>
 </table>
 <br>
+<% if signed_in? &&  current_user.esAdmin  %>
 <%= link_to "Nueva propiedad", new_property_path,class: 'btn btn-primary' %>
+<%end%>
