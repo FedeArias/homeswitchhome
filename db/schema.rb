@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20181213181031) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +106,14 @@ ActiveRecord::Schema.define(version: 20181213181031) do
     t.date "fecha"
     t.float "monto"
     t.boolean "disponible", default: true
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.date "week"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "property_id"
   end
 
   create_table "registreds", force: :cascade do |t|

@@ -82,4 +82,5 @@ class PropertiesController < ApplicationController
     def property_params
         params.require(:property).permit(:descripcion,:nombre, :lugar,:costo, :descripcionLug, :subastada, :disponible, :monto, :precio, auction1s: [:id, :fechainicio]) 
       end
+
 end
