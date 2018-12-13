@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @hotsale.property.nombre %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @hotsale.property.monto %>
+</p>
+
+<p>
+  <strong>Preciohot:</strong>
+  <%= @hotsale.preciohot %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @hotsale.fecha %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_hotsale_path(@hotsale) %> |
+<%= link_to 'Back', hotsales_path %>

@@ -1,0 +1,31 @@
+
+<%= form_for(@hotsale) do |f| %>
+ 
+ <div class="container-fluid">
+  
+  <div class="form-group">
+ <span class="border border-primary"></span>
+    <%=f.label :nombre, @hotsale.property.nombre%>
+    <%= f.hidden_field :property_id%>
+ <span class="border border-primary"></span>
+  </div>
+   <div class="form-group">
+    <%=f.label :precio, @hotsale.property.monto %>
+    <%= f.hidden_field :property_id%>
+ </div>
+   <div class="form-group">
+    <%=f.label :preciohot, 'Ingrese nuevo precio '%>
+    <%=f.text_field :preciohot, class: 'form-control', placeholder: 'Ingrese precio', required: true %>
+  </div>
+ 
+  <div class="form-group">
+    <%=f.label :fecha, 'Semana a comprar:'%>
+        <%=f.date_field :fecha, { required:true}  %>
+  </div>
+
+</div>
+  <div class="form-actions">
+    
+    <%= f.submit 'crear nuevo hotsale', class: 'btn btn-primary' %>
+  </div>
+<% end %>

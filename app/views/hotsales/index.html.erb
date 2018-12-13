@@ -1,0 +1,33 @@
+
+<h1>Hotsales</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Precio</th>
+      <th>Preciohot</th>
+      <th>Fecha</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hotsales.each do |hotsale| %>
+      <tr>
+        <td><%= hotsale.property.nombre %></td>
+        <td><%= hotsale.property.monto %></td>
+        <td><%= hotsale.preciohot %></td>
+        <td><%= I18n.localize(hotsale.fecha) if hotsale.fecha%></td>
+        <td><%= link_to 'Mostrar', property_path(id: hotsale.property) %></td>
+        <td><%= link_to 'Editar', edit_hotsale_path(hotsale) %></td>
+        <td><%= link_to 'Eliminar', hotsale, method: :delete, data: { confirm: 'esta seguro que desea eliminar el hotsale?' } %></td>
+      <td><%= link_to 'Comprar', compra_path(hotsale_id: hotsale.id)  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hotsale', new_hotsale_path %>

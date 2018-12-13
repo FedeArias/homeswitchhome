@@ -55,7 +55,7 @@ class Auction1sController < ApplicationController
   # POST /auction1s
   # POST /auction1s.json
   def create
-
+   
     @auction1s = Auction1.all
     @auction1 = Auction1.new(auction1_params)
     respond_to do |format|
