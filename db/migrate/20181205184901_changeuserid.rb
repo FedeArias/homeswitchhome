@@ -1,6 +1,9 @@
 class Changeuserid < ActiveRecord::Migration[5.1]
   def change
-    remove_column :petitions, :email
-    add_column :petitions, :user_id, :integer 
+    create_table :petitions do |t|
+      t.integer :user_id
+      t.timestamps
+    end
+   
   end
 end
