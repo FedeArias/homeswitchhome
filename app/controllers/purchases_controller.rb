@@ -125,10 +125,8 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
-<<<<<<< HEAD
+
       params.require(:purchase).permit(:week, :user_id, :property_id,  property: [:id])
-=======
-      params.require(:purchase).permit(:week, :user_id, :property_id)
->>>>>>> 4f82f93cd4455d872c0f0ad8161b33cb10d755ea
+
     end
 end

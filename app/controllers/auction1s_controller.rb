@@ -123,7 +123,7 @@ end
       # end
       if (@auction1.monto > @auction1.puja ) 
         @auction1.puja= @auction1.monto
-        @auction1.ganador=current_user.email
+        @auction1.ganador=current_user.id
         format.html { redirect_to @auction1, notice: 'Subasta Actualizada'  }
 
     else
@@ -141,6 +141,8 @@ end
     
     respond_to do |format|
     if @auction1.puja>= @auction1.montominimo
+      @ganador= User.find(@auction1.ganador)
+      @ganador.update(creditos: @ganador.creditos - 1) 
     @auction1.destroy
       format.html { redirect_to terminar_path, notice: 'Subasta terminada correctamente con un ganador'} 
       format.json { head :no_content }

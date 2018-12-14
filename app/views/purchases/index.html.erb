@@ -21,8 +21,9 @@
         <td><%= purchase.property.nombre %></td>  
         <% if signed_in? &&  current_user.esAdmin  %>
         <td><%= link_to 'mostrar', purchase %></td>
+    <%end%>   
        <td><%= link_to 'eliminar', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-     <%end%>   
+     
       <%end%>
       <%end%>
       </tr>

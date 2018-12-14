@@ -20,10 +20,13 @@
         <td><%= hotsale.property.monto %></td>
         <td><%= hotsale.preciohot %></td>
         <td><%= I18n.localize(hotsale.fecha) if hotsale.fecha%></td>
-        <td><%= link_to 'Mostrar', property_path(id: hotsale.property) %></td>
-        <td><%= link_to 'Editar', edit_hotsale_path(hotsale) %></td>
+       <% if signed_in? &&  current_user.esAdmin  %>
+       <td><%= link_to 'Editar', edit_hotsale_path(hotsale) %></td>
         <td><%= link_to 'Eliminar', hotsale, method: :delete, data: { confirm: 'esta seguro que desea eliminar el hotsale?' } %></td>
-      <td><%= link_to 'Comprar', compra_path(hotsale_id: hotsale.id)  %></td>
+     <%end%>
+        <td><%= link_to 'Mostrar', property_path(id: hotsale.property) %></td>
+         <td><%= link_to 'Comprar', compra_path(hotsale_id: hotsale.id)  %></td>
+     
       <%end%>
       </tr>
     <% end %>

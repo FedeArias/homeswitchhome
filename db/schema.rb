@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181214083050) do
+ActiveRecord::Schema.define(version: 20181214121719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20181214083050) do
     t.float "monto"
     t.date "fechainicio"
     t.float "montominimo"
-    t.string "ganador"
+    t.integer "ganador"
   end
 
   create_table "auctionns", force: :cascade do |t|
