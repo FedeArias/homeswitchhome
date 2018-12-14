@@ -26,8 +26,9 @@
 </p>
 
 
-
+<% if signed_in? &&  current_user.esAdmin  %>
 <%= link_to 'editar', edit_property_path(@property) %> |
+<%end%>
 <%= link_to 'atras', properties_path %>
 
 </div>

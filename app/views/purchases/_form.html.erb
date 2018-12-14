@@ -1,10 +1,32 @@
 
 <%= simple_form_for(@purchase) do |f| %>
  
-  <div class="form-inputs">
-    <%= f.date_field :week %>
+  <%= form_for(@purchase) do |f| %>
+ 
+ <div class="container-fluid">
+  
+  <div class="form-group">
+ <span class="border border-primary"></span>
+    <%=f.label :nombre, @purchase.property.nombre%>
+    <%= f.hidden_field :property_id%>
+<span class="border border-primary"></span>
   </div>
 
+ <div class="form-group">
+    <%=f.label :week, 'Semana a comprar:'%>
+        <%=f.date_field :week, { required:true}  %>
+  </div>
+   <div class="form-group">
+    <%=f.label  'credito maximo (si es cero no puede realizar una nueva compra): '%>
+  </div>
+   <div class="form-group">
+ <span class="border border-primary"></span>
+     <%=f.label  @purchase.user.creditos %>
+    <%= f.hidden_field :user_id%>
+<span class="border border-primary"></span>
+  </div>
+  
+<% end %>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

@@ -58,8 +58,13 @@
       
         <a class="nav-link disabled" href="<%= hotsales_path %>">Hot Sale</a>
       </li>
+ <% if signed_in? &&  current_user.premium  %>
 
+ <li class="nav-item">
+        <a class="nav-link", href="<%= purchases_path%>">Reservas</a>
+      </li>
 
+ <%end%>
       <% if signed_in? &&  current_user.esAdmin  %>
        <li class="nav-item">
         <a class="nav-link", href="<%= auction1s_path%>">Subastas</a>
@@ -69,6 +74,9 @@
       </li>  
        <li class="nav-item">
         <a class="nav-link disabled" href="<%=terminar_path%>">Subastas Terminadas</a>
+     <li class="nav-item">
+        <a class="nav-link", href="<%= purchases_path%>">Reservas</a>
+      </li>
       </li>  
       <%end%>
 

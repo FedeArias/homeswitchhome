@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181213181031) do
+ActiveRecord::Schema.define(version: 20181214083050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20181213181031) do
     t.integer "property_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "repetido"
   end
 
   create_table "nos", force: :cascade do |t|
@@ -112,6 +113,7 @@ ActiveRecord::Schema.define(version: 20181213181031) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "property_id"
+    t.integer "repetido"
   end
 
   create_table "registreds", force: :cascade do |t|

@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   post 'Terminadas' => 'auction1s#delete', as: 'finalizar'
   get 'fechas a subastar' => 'auction1s#fechas', as: 'fecha'  
   get 'compra' => 'hotsales#comprar', as: 'compra' 
-
+get 'almacenar' => 'purchases#crear', as: 'creacion'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

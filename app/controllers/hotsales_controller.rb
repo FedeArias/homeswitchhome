@@ -25,9 +25,25 @@ class HotsalesController < ApplicationController
   # POST /hotsales
   # POST /hotsales.json
   def create
+    @hotsaleall= Hotsale.all
     @hotsale = Hotsale.new(hotsale_params)
-    
+    @purchases= Purchase.all
     respond_to do |format|
+      @purchases.each do |purchase|
+        if   purchase.property_id == @hotsale.property_id &&  purchase.week == @hotsale.fecha
+          @mensaje='la propiedad ya esta reservada  en esa fecha'
+          format.html { render :new  }
+          @hotsale.repetido = 0
+        end
+      end
+      @hotsaleall.each do |hotsaleall|
+        if   hotsaleall.property_id ==  @hotsale.property_id &&  hotsaleall.fecha == @hotsale.fecha
+          @mensaje='ya hay un hotsale para esta propiedad'
+          format.html { render :new  }
+          @hotsale.repetido = 0
+        end
+      end
+       
       if @hotsale.fecha< (Time.now + 6.month) && @hotsale.fecha > Time.now && @hotsale.fecha.strftime("%a") == 'Mon'
       if @hotsale.save
         format.html { redirect_to @hotsale, notice: 'Hotsale ha sido creado' }
@@ -72,8 +88,16 @@ class HotsalesController < ApplicationController
     end
   end
   def comprar
+    @purchase= Purchase.all
     @hotsale= Hotsale.new
     @hotsale = Hotsale.find(params[:hotsale_id])
+    
+    @purchase.each do |reserv|
+      if @hotsale.fecha == reserv.week && current_user.id == reserv.user_id 
+           @mensaje='ya tenes una reserva para esa semana'
+           format.html{ render :new}
+      end
+    end
     @hotsale.destroy
     respond_to do |format|
       format.html { redirect_to hotsales_url, notice: 'Semana asignada' }

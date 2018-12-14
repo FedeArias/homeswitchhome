@@ -20,3 +20,5 @@ auction15= Auction1.create({property_id: '5', puja:'0', fechanew: '7-07-2021', f
 auction16= Auction1.create({property_id: '6', puja:'5000000', fechanew: '11-07-2020', fechainicio: '7-12-2018',montominimo:'7000000'})
 
 user100= User.create({ nombre:'juan', apellido: 'Martinez', DNI: '39456789', email: 'juan_admi@hotmail.com', password: 'administrador', vencimientoTarjeta: '4-08-2025', codigoTarjeta: '123', numeroTarjeta: '1234567891234567', edad: '24', premium: 'false', esAdmin: 'true', creditos: '2' })
+user100= User.create({ nombre:'cristian', apellido: 'Martinez', DNI: '39456789', email: 'cristianpremium@hotmail.com', password: 'usuario', vencimientoTarjeta: '4-08-2025', codigoTarjeta: '123', numeroTarjeta: '1234567891234567', edad: '24', premium: 'true', esAdmin: 'false', creditos: '2' })
+user100= User.create({ nombre:'cristian', apellido: 'Martinez', DNI: '39456789', email: 'fedepremium@hotmail.com', password: 'usuario', vencimientoTarjeta: '4-08-2025', codigoTarjeta: '123', numeroTarjeta: '1234567891234567', edad: '24', premium: 'true', esAdmin: 'false', creditos: '2' })

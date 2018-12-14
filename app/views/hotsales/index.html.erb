@@ -12,9 +12,10 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody>  
     <% @hotsales.each do |hotsale| %>
       <tr>
+      <%if hotsale.repetido != 0 %>
         <td><%= hotsale.property.nombre %></td>
         <td><%= hotsale.property.monto %></td>
         <td><%= hotsale.preciohot %></td>
@@ -23,11 +24,11 @@
         <td><%= link_to 'Editar', edit_hotsale_path(hotsale) %></td>
         <td><%= link_to 'Eliminar', hotsale, method: :delete, data: { confirm: 'esta seguro que desea eliminar el hotsale?' } %></td>
       <td><%= link_to 'Comprar', compra_path(hotsale_id: hotsale.id)  %></td>
+      <%end%>
       </tr>
     <% end %>
   </tbody>
-</table>
+</table>  
 
 <br>
 
-<%= link_to 'New Hotsale', new_hotsale_path %>

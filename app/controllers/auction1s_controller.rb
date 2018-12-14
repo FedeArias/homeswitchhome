@@ -55,23 +55,32 @@ class Auction1sController < ApplicationController
   # POST /auction1s
   # POST /auction1s.json
   def create
-   
+    @purchases= Purchase.all
     @auction1s = Auction1.all
     @auction1 = Auction1.new(auction1_params)
     respond_to do |format|
+      @purchases.each do |purchase|
+        if   purchase.property_id == @auction1.property_id &&  purchase.week == @auction1.fechanew
+          @mensaje='la propiedad ya esta reservada  en esa fecha'
+          format.html { render :new  }
+        end
+      end
       @auction1s.each do |auction1ss|
         if   auction1ss.property.nombre == @auction1.property.nombre &&  auction1ss.fechanew == @auction1.fechanew
           @mensaje='la propiedad esta siendo subastada en esa fecha'
           format.html { render :new  }
+        else 
+          if auction1ss.property.nombre == @auction1.property.nombre && ((auction1ss.fechainicio + 2.day == @auction1.fechainicio) || (auction1ss.fechainicio + 11.day == @auction1.fechainicio) || (auction1ss.fechainicio  == @auction1.fechainicio) || (auction1ss.fechainicio + 1.day == @auction1.fechainicio + 2.day) || (auction1ss.fechainicio == @auction1.fechainicio  + 2.day ))
+            @mensaje='ya hay un inicio de subasta para esta propiedad en esta fecha'
+            format.html { render :new  }
+          end
         end
       end
         if @auction1.fechanew >=   (Time.now + 6.month) && @auction1.fechainicio > Time.now && @auction1.fechanew.strftime("%a") == 'Mon'
-          @auction1.montominimo=@auction1.puja
-          @auction1.puja='0'
-         
-           if @auction1.save
+          
+           if @auction1.save 
             
-              format.html { redirect_to @auction1, notice: 'Subasta creada correctamente' }
+                format.html { redirect_to properties_path, notice: 'Subasta creada correctamente' }
               format.json { render :show, status: :created, location: @auction1 }
            else
              format.html { render :new }

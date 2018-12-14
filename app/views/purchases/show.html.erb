@@ -5,5 +5,17 @@
   <%= @purchase.week %>
 </p>
 
+<p>
+  <strong>Nombre:</strong>
+  <%= @purchase.property.nombre %>
+</p>
+
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @purchase.user.nombre %>
+</p>
+
+
 <%= link_to 'Edit', edit_purchase_path(@purchase) %> |
 <%= link_to 'Back', purchases_path %>

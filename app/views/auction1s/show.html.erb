@@ -15,8 +15,9 @@
   <strong>Fecha:</strong>
   <%= @auction1.fechanew %>
 </p>
-
+<% if signed_in? &&  current_user.esAdmin  %>
 <%= link_to 'editar', edit_auction1_path( @auction1.property_id) %> |
 <%= link_to 'atras', auction1s_path %>
+<%end%>
 </div>
 
