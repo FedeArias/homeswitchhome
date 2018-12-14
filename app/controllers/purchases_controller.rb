@@ -34,6 +34,7 @@ class PurchasesController < ApplicationController
    @user = current_user
     if @purchase.week >=   (Time.now + 6.month)  && @purchase.week.strftime("%a") == 'Mon'
       if current_user.creditos > 0 
+
        @purchases.each do |reserv|
        if @purchase.week == reserv.week && @purchase.user_id== reserv.user_id 
             @mensaje='ya tenes una reserva para esa semana'
@@ -45,6 +46,7 @@ class PurchasesController < ApplicationController
               format.html{ render :new}
               @purchase.repetido = 0
          end
+
         end
       end
           if @purchase.save && @purchase.repetido != 0
@@ -113,6 +115,8 @@ end
     end
   end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_purchase
@@ -121,6 +125,10 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
+<<<<<<< HEAD
       params.require(:purchase).permit(:week, :user_id, :property_id,  property: [:id])
+=======
+      params.require(:purchase).permit(:week, :user_id, :property_id)
+>>>>>>> 4f82f93cd4455d872c0f0ad8161b33cb10d755ea
     end
 end

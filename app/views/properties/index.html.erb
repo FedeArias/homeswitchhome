@@ -23,7 +23,7 @@
         <td> <%=link_to 'Mostrar', property, class: 'btn btn-primary btn-sm'%>
         <td> <%=link_to 'Subastas', fecha_path(property_id: property.id), class: 'btn btn-primary btn-sm'%>
          <% if current_user.premium || current_user.esAdmin %>
-               <td> <%=link_to 'Comprar semana', new_purchase_path(user_id: current_user.id, property_id: property.id), class: 'btn btn-primary btn-sm'%>
+               <td> <%=link_to 'Comprar semana', new_purchase_path(:user_id => current_user.id, :property_id => property.id), class: 'btn btn-primary btn-sm'%>
             <%if current_user.esAdmin  %>
                     <td> <%=link_to 'Editar', edit_property_path(property), class: 'btn btn-primary btn-sm'%>
                     <td> <%=link_to 'Eliminar', property, method: :delete, class: 'btn btn-danger btn-sm',data: { confirm: "¿Realmente desea eliminar la propiedad?"} %>
