@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 20181214121719) do
     t.datetime "remember_created_at"
     t.date "vencimientoTarjeta"
     t.integer "codigoTarjeta"
-    t.string "numeroTarjeta"
+    t.string "numeroTarjeta"   
     t.integer "edad"
     t.boolean "premium", default: false
     t.boolean "esAdmin", default: false
